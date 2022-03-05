@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+}
+
+.main > * {
+    border: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+.sidebar{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}

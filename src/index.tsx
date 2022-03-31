@@ -1,23 +1,11 @@
 import ReactDOM from 'react-dom';
-import Queue from './components/Queue';
-import Prescription from './components/Prescription';
-import Welcome from './components/Welcome';
-import './css/app.css'
-
-
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import App from './App';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Provider } from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
-  <div className='main'>
-    <BrowserRouter>
-      <Queue />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path=":prescriptionId" element={<Prescription />} />
-        <Route path="*" element={<>No Route</>}/>
-      </Routes>
-    </BrowserRouter>
-  </div>,
-
-document.getElementById('root')
-);
+    <Provider store={store}>
+        <App />
+    </Provider>,
+document.getElementById('root'));

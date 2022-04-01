@@ -15,8 +15,3 @@ export type Request = {
     }
     isFollowing: boolean
 }
-
-export type User = {
-  uid: string,
-  email: string | null
-}

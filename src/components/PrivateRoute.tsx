@@ -1,10 +1,16 @@
 import { Navigate } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext";
 
-export type ProtectedRouteProps = {
-  cond: boolean;
-  outlet: JSX.Element;
-};
+type PrivateRouteProps = {
+  outlet: JSX.Element
+}
 
-export default function PrivateRoute({cond, outlet}: ProtectedRouteProps) { 
-  return cond ? outlet : <Navigate to="/" />
+export default function PrivateRoute({ outlet }: PrivateRouteProps) {
+  const currentUser = useAuth()
+
+  if (currentUser) {
+    return outlet
+  } else {
+    return <Navigate to="/signin" />
+  }
 }

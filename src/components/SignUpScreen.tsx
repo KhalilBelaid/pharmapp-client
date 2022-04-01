@@ -27,7 +27,7 @@ export default function SignUpScreen() {
         setError("")
         setLoading(true)
         await createUserWithEmailAndPassword(auth, email, password)
-				navigate('/')
+				navigate('/signin')
       } catch (err) {
         if (err instanceof Error) {
           console.log(err.message)

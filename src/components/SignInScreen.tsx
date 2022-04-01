@@ -24,7 +24,7 @@ function SignInScreen({signIn} : SignInScreenProps) {
       setError("")
       setLoading(true)
       await signIn(email, password)
-      navigate('/dashboard')
+      navigate('/')
     } catch (err) {
       if (err instanceof Error) {
         console.log(err.message)
@@ -33,8 +33,6 @@ function SignInScreen({signIn} : SignInScreenProps) {
         console.log('Unexpected error', err);
       }
     }
-
-
     setLoading(false)
   }
 
@@ -60,7 +58,7 @@ function SignInScreen({signIn} : SignInScreenProps) {
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-            Don't have an account? <Link to="/signUp">Sign up</Link>
+            Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
       </Container>
   )

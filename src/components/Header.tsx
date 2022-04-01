@@ -18,7 +18,7 @@ function HeaderContainer({signOut}: SignOutScreenProps) {
 		try {
 			await signOut()
 			store.dispatch.requests.unloaded()
-			navigate("/")
+			navigate("/signin")
     	} catch (err) {
 			if (err instanceof Error) {
 				console.log(err.message)

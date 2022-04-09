@@ -1,17 +1,39 @@
 export type Request = {
-    id: string
-    name: {
-      first: string
-      last: string
+  id: string
+  gender: string
+  name: {
+    title: string
+    first: string
+    last: string
+  }
+  location: {
+    street: {
+      number: number
+      name: string
     }
-    picture: {
-      large: string
+    city: string
+    state: string
+    country: string
+    postcode: number
+    coordinates: {
+      latitude: number
+      longitude: number
     }
-    location: {
-      street: string
-      state: string
-      city: string
-      postcode: number
+    timezone: {
+      offset: string
+      description: string
     }
-    isFollowing: boolean
+  }
+  email: string
+  dob: {
+    date: string
+    age: number
+  }
+  phone: string
+  picture: {
+    large: string
+    medium: string
+    thumbnail: string
+  }
+  nat: string
 }

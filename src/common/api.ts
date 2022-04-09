@@ -6,7 +6,7 @@ type RequestResponse = {
 }
 
 export const loadRequests = async () => {
-  const result = await fetch('https://randomuser.me/api/?results=20')
+  const result = await fetch('https://randomuser.me/api/?results=20&nat=fr')
   const data = await result.json() as RequestResponse
   return data.results.map(user => ({ ...user, id: nanoid() })) as ReadonlyArray<Request>
 }

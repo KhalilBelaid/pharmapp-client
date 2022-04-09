@@ -4,13 +4,15 @@ import { EditCard } from './EditCard'
 
 export default function Dashboard() {
   return (
-    <>
-      <Header />
-      <div className='d-flex h-100'>
+    <div className='d-flex flex-column vh-100 overflow-hidden'>
+      <div style={{flex: '0 1 auto'}}>
+        <Header />
+      </div>
+      <div style={{flex: '1 1 auto'}} className='d-flex overflow-hidden ' >
         <Sidebar />
-        <div className="vr"></div>
+        <div className='vr' />
         <EditCard />
       </div>
-    </>
+    </div>
   )
 }

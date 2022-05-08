@@ -1,6 +1,6 @@
 import { useMemo, useState }  from 'react'
 import { Column } from 'react-table'
-import ReactTable from './ReactTable'
+import ReactTable from '../ReactTable'
 import InputForm from './InputForm'
 
 export type TableColumns = {

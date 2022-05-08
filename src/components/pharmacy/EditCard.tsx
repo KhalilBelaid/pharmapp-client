@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../../store";
 import ListForm from "./ListForm";
-import Lightbox from "./Lightbox";
+import Lightbox from "../Lightbox";
 import UserCard from "./UserCard";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
@@ -17,7 +17,7 @@ export function EditCard () {
         )
     }
     return (
-        <div className='d-flex flex-column' style={{overflowX: 'scroll'}}>
+        <div className='flex-grow-1 d-flex flex-column'>
             <div className='flex-grow-1 p-1 m-0 d-flex flex-column gap-1 justify-content-start align-items-stretch h-100'>
                 <UserCard info={selectedRequest}/>
                 <div className="d-flex flex-grow-1 justify-content-between gap-1 border p-1">
@@ -27,7 +27,7 @@ export function EditCard () {
                     </div>
                 </div>
             </div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="light">
                 <Container fluid className='justify-content-end'>
                     <Nav>
                         <Button className="ms-3">

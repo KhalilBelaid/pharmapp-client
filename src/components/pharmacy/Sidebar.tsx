@@ -1,4 +1,4 @@
-import Requests from "../components/RequestList";
+import Requests from "./RequestList";
 
 export default function Sidebar() {  
   return (

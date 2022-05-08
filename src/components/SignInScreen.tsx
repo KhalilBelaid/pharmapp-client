@@ -1,6 +1,6 @@
+import { Link, useNavigate } from "react-router-dom"
 import React, { FC, useRef, useState } from "react"
 import { Form, Button, Card, Alert, Container } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
 import { connect } from "react-redux"
 import { RootDispatch, RootState } from "../store"
 
@@ -40,7 +40,7 @@ function SignInScreen({signIn} : SignInScreenProps) {
       <Container className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
           <Card className="w-100" style={{ maxWidth: "400px" }}>
             <Card.Body>
-              <h2 className="text-center mb-4">Log In</h2>
+              <h2 className="text-center mb-4">Sign In</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
@@ -52,7 +52,7 @@ function SignInScreen({signIn} : SignInScreenProps) {
                   <Form.Control type="password" ref={passwordRef} required />
                 </Form.Group>
                 <Button disabled={loading} className="w-100 mt-2" type="submit">
-                  Log In
+                  Sign In
                 </Button>
               </Form>
             </Card.Body>

@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
 import { ListGroup } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux'
-import store, { RootState, RootDispatch} from '../store'
-import { State } from '../store/models/requests';
+import store, { RootState, RootDispatch} from '../../store'
+import { State } from '../../store/models/requests';
 
 interface IListItemProps {
     id: string,

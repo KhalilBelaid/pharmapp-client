@@ -1,3 +1,5 @@
+import { User } from "firebase/auth"
+
 export type Request = {
   id: string
   gender: string
@@ -37,3 +39,10 @@ export type Request = {
   }
   nat: string
 }
+
+export type AppUser = 
+  User & {
+    roles : {
+      pharmacy: boolean
+    }
+} 

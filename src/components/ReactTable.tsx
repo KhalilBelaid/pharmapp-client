@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { Column, useRowSelect, useTable } from 'react-table'
-import { TableColumns } from './ListForm'
+import { TableColumns } from './pharmacy/ListForm'
 
 type TableProps = {
     data: ReadonlyArray<TableColumns>

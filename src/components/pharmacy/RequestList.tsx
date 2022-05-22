@@ -1,10 +1,8 @@
 import { ListGroup } from "react-bootstrap"
 import { useSelector } from "react-redux"
-import { useFirestore, useFirestoreConnect } from "react-redux-firebase"
+import { useFirestoreConnect } from "react-redux-firebase"
 import { RootState } from "../../store/reducers"
 import "firebase/compat/firestore"
-import "firebase/compat/storage"
-import "firebase/compat/database"
 
 interface IListItemProps {
 	id: string
@@ -31,7 +29,6 @@ function ListItem(props: IListItemProps) {
 }
 
 export default function Requests() {
-	const firestore = useFirestore()
 	useFirestoreConnect(() => [{ collection: "requests" }])
 	const requests = useSelector(
 		(state: RootState) => state.firestore.ordered.requests

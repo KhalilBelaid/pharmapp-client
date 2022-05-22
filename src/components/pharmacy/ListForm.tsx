@@ -1,6 +1,6 @@
 import { useMemo, useState }  from 'react'
 import { Column } from 'react-table'
-import ReactTable from '../ReactTable'
+import EditableTable from '../common/EditableTable'
 import InputForm from './InputForm'
 
 export type TableColumns = {
@@ -91,7 +91,7 @@ export default function ListForm () {
   return (
     <div className="d-flex flex-column flex-fill p-3 border">
       <InputForm selectedRow={selectedData} onFormSubmit={onFormSubmit}/>
-      <ReactTable data={data} columns={columns} onSelect={setSelected} />
+      <EditableTable data={data} columns={columns} onSelect={setSelected} />
     </div>
   )
 }

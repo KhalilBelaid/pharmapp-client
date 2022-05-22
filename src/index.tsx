@@ -1,11 +1,15 @@
-import ReactDOM from 'react-dom';
-import App from './App';
-import "bootstrap/dist/css/bootstrap.min.css"
-import { Provider } from 'react-redux';
-import store from './store';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import 'firebase/compat/firestore'
+import store, { rrfProps } from './store'
+import App from './App'
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <ReactReduxFirebaseProvider {...rrfProps}>
+            <App />
+        </ReactReduxFirebaseProvider>
     </Provider>,
-document.getElementById('root'));
+document.getElementById('root'))

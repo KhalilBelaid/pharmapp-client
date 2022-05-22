@@ -1,6 +1,6 @@
 import Sidebar from './Sidebar'
 import Header from './Header'
-import { EditCard } from './EditCard'
+import { RequestCard } from './RequestCard'
 
 export default function Dashboard() {
   return (
@@ -11,7 +11,7 @@ export default function Dashboard() {
       <div style={{flex: '1 1 auto'}} className='d-flex overflow-hidden ' >
         <Sidebar />
         <div className='vr' />
-        <EditCard />
+        <RequestCard />
       </div>
     </div>
   )

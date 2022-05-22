@@ -1,32 +1,23 @@
-import { FC, useState } from 'react'
 import { Button, Alert, Navbar, Nav, Container } from "react-bootstrap"
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from "react-redux"
+import { useFirebase } from "react-redux-firebase"
 import { useNavigate } from "react-router-dom"
-import store, { RootDispatch, RootState } from '../../store'
+import { RootState } from "../../store/reducers"
+import "firebase/compat/firestore"
+import "firebase/compat/storage"
+import "firebase/compat/database"
 
-type HeaderProps = {
-	signOut: () => Promise<void>
-}
-
-function HeaderContainer({signOut}: HeaderProps) {
-	const [error, setError] = useState("")
-	const currentUser = useSelector((state: RootState) => state.auth)
+export default function Header() {
+	const authError = useSelector(
+		(state: RootState) => state.firebase.authError
+	)
+	const profile = useSelector((state: RootState) => state.firebase.profile)
+	const firebase = useFirebase()
 	const navigate = useNavigate()
-
 	async function handleSignOut() {
-		setError("")
-		try {
-			await signOut()
-			store.dispatch.requests.unloaded()
-			navigate("/signin")
-    	} catch (err) {
-			if (err instanceof Error) {
-				console.log(err.message)
-				setError(err.message)
-			} else {
-				console.log('Unexpected error', err);
-			}
-		}
+		await firebase.logout().then(() => {
+			navigate("/")
+		})
 	}
 	return (
 		<Navbar bg="dark" variant="dark">
@@ -36,9 +27,9 @@ function HeaderContainer({signOut}: HeaderProps) {
 				</Navbar.Brand>
 				<Nav>
 					<Navbar.Text>
-						Signed in as: {currentUser?.email}
+						Signed in as: {profile.firstName} {profile.lastName}
 					</Navbar.Text>
-					{error && <Alert variant="danger">{error}</Alert>}
+					{authError && <Alert variant="danger">{authError}</Alert>}
 					<Button onClick={handleSignOut} className="ms-3">
 						Sign Out
 					</Button>
@@ -47,19 +38,3 @@ function HeaderContainer({signOut}: HeaderProps) {
 		</Navbar>
 	)
 }
-
-type AuthProps = ReturnType<typeof mapProps> & ReturnType<typeof mapDispatch>
-
-const Header: FC<AuthProps> = ({ signOut }) => {
-    return <HeaderContainer signOut={signOut} />
-}
-
-const mapProps = (state: RootState) => ({
-    auth: state.auth
-})
-  
-const mapDispatch = (dispatch: RootDispatch) => ({
-    signOut: () => dispatch.auth.signOut()
-})
-  
-export default connect(mapProps, mapDispatch)(Header)

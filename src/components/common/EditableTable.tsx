@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { Column, useRowSelect, useTable } from 'react-table'
-import { TableColumns } from './pharmacy/ListForm'
+import { TableColumns } from '../pharmacy/ListForm'
 
 type TableProps = {
     data: ReadonlyArray<TableColumns>
@@ -9,7 +9,7 @@ type TableProps = {
     onSelect: any
   }
   
-export default function ReactTable({data, columns, onSelect}: TableProps) {
+export default function EditableTable({data, columns, onSelect}: TableProps) {
     const [selectedRow, setSelectedRow] = useState(-1)
   
     const {
